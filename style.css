@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body{
+    background-image: url("images/background.jfif");
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.TextBox{
+    position: absolute;
+    background-image: url("images/textbox.png");
+    width: 1400px;
+    height: 450px;
+    top:50%;
+    left:5%;
+    scale: 0;
+
+    animation: popin75 .3s ease-in 1s, popout75 .3s ease-out 3s;
+    animation-fill-mode: forwards;
+
+    z-index: 20;
+}
+
+.TextBox > p{
+    font-size: 3.5vw;
+    text-align: end;
+
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+.BlackScreen{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
+
+    animation: fadeout .3s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: .7s;
+}
+
+.Charmander{
+    position: absolute;
+    top:10%;
+    left:45%;
+    z-index: -10;
+    opacity: 0;
+    transform-origin: center;
+
+    animation: moveinFar .35s ease-out 1s, jump .35s ease-out 1.6s 2, CharMoveRight .35s ease-in-out 2.5s;
+    animation-fill-mode: forwards;
+}
+
+.TallGrass{
+    background-image: url("images/tallgrass.png");
+    width: 100vw;
+    height: 25vw;
+
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+
+    top:-25vw;
+    left:0;
+
+    scale: 0;
+
+    animation: popin100 .6s ease-in;
+    animation-delay: .2s;
+    animation-fill-mode: forwards;
+}
+
+.Pokeball{
+    background-image: url("images/pokeball.webp");
+    position: absolute;
+    width: 20vw;
+    height: 50vh;
+
+    top: 0;
+    left: 0;
+
+    z-index: 100;
+
+    scale: 0;
+    top: 50%;
+    left:40%;
+
+    animation: Pokeball .5s ease-out 3.5s;
+    transform-origin: center;
+}
+
+.Squirtle{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    scale: 0;
+
+    animation: squirtleAppear .5s ease-in-out 4s;
+    animation-fill-mode: forwards;
+}
+
+.Sparkle{
+    position: absolute;
+    top: 25%;
+    left: 55%;
+
+    scale: 0;
+    animation: sparkle 1s linear 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeout {
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+@keyframes moveinFar {
+    0%{scale: .1;
+        opacity: 1;
+        filter: brightness(0);}
+    100%{scale:3;
+        opacity: 1;
+        filter: brightness(1);}
+}
+
+@keyframes popin75 {
+    0%{scale: 0;}
+    100%{scale: .75;}
+}
+
+@keyframes popin100{
+    0%{scale: 0;}
+    100%{scale: 2;
+    opacity: 0;}
+}
+
+@keyframes popout75 {
+    0%{scale: .75;}
+    100%{scale: 0;}
+}
+
+@keyframes jump{
+    0%{top:10%;}
+    50%{top:5%;}
+    100%{top:10%;}
+}
+
+@keyframes CharMoveRight{
+    100%{
+        scale: 2;
+        left: 60%;
+        top: 15%;
+    }
+}
+
+@keyframes Pokeball {
+    0%{
+        scale:1;
+        top:100%;
+    }
+
+    100%{
+        top:30%;
+        left: 20%;
+        scale: .6;
+        transform: rotateZ(-360deg);
+    }
+}
+
+@keyframes squirtleAppear {
+    0%{
+        scale: 4;
+        top: 30%;
+        filter:brightness(25);
+    }
+
+    100%{
+        top: 50%;
+        scale: 3;
+        filter:brightness(1);
+    }
+}
+
+@keyframes sparkle{
+    0%{scale: 1;}
+    100%{
+        scale: 1;
+        display: none;}
+}
